@@ -1,6 +1,7 @@
 # You can change the base image to any other image you want.
 FROM kalilinux/kali-rolling:latest
-
+ARG DEBIAN_FRONTEND=noninteractive
+WORKDIR /root
 # Install packages and set locale
 RUN apt-get update \
     && apt-get install -y locales nano ssh sudo python3 curl unzip wget \
@@ -26,3 +27,4 @@ RUN wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux
 
 EXPOSE 80 8888 8080 443 5130-5135 3306 7860
 CMD ["/bin/bash", "/docker.sh"]
+ENTRYPOINT ["/bin/bash"]
