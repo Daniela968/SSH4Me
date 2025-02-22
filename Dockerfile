@@ -1,10 +1,6 @@
 # You can change the base image to any other image you want.
 FROM kalilinux/kali-rolling:latest
 
-
-ARG AUTH_TOKEN
-ARG PASSWORD=rootuser
-
 # Install packages and set locale
 RUN apt-get update \
     && apt-get install -y locales nano ssh sudo python3 curl wget \
